@@ -1,20 +1,13 @@
 'use client'
 import { ChangeEvent, useState } from 'react'
-import styles from '../../app/page.module.sass'
+import styles from "../../app/(system)/page.module.sass"
+import {IGameInfo} from '@/types/interfaces'
 
-interface IGameInfo {
-    name: String
-    type: String
-    played: Number
-    wins?: Number
-    lastPlayed?: Date
-
-}
 
 export default function Boardgames() {
     const [game, setGame] = useState("")
     const [gameType, setGameType] = useState("")
-    const [gameInfo, setGameInfo] = useState<IGameInfo>({name:"", type:"", played: 0, wins:0})
+    const [gameInfo, setGameInfo] = useState<IGameInfo>({name:"", type:""})
 
     function setGameName(e: ChangeEvent<HTMLInputElement>) {
         setGame(e.target.value)
@@ -29,9 +22,7 @@ export default function Boardgames() {
         setGameInfo(
             {
                 name: game,
-                type: gameType,
-                played: 0,
-                wins: 0 
+                type: gameType
             }
         )
 
@@ -68,8 +59,7 @@ export default function Boardgames() {
 
             <p>Nome do Jogo: {gameInfo.name}</p>
             <p>Tipo: {gameInfo.type}</p>
-            <p>Viu mesa: {String(gameInfo.played)}</p>
-            {gameInfo.type == "Coop" ? <p>Vitorias: {String(gameInfo.wins)}</p> : null}
+
         </div>
     )
 }

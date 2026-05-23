@@ -1,5 +1,5 @@
 import styles from '../page.module.sass'
-import Boardgames from '../../components/Boardgames'
+import Boardgames from '../../../components/Boardgames'
 import Footer from '@/components/Footer'
 
 export default function Games() {
