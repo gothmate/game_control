@@ -18,8 +18,8 @@ export default function Player() {
 
         const newPlayer = { name: name, played: 0 }
 
-        await handleNewPlayer(newPlayer)              // salva no arquivo
-        setName("")                                   // limpa o input
+        await handleNewPlayer(newPlayer)             
+        setName("")                                   
     }
 
     useEffect(() => {
