@@ -1,36 +1,31 @@
 'use client'
-import { ChangeEvent, useState } from 'react'
-import styles from '../../app/page.module.sass'
-
-interface IPlayers {
-    name: String
-    played: Number
-    wins?: Number
-    lastTimePlayed?: Date
-    lastGamePlayed?: String
-    lastGameWin?: String
-}
+import { ChangeEvent, useEffect, useState } from 'react'
+import styles from "../../app/(system)/page.module.sass"
+import {IPlayers} from '@/types/interfaces'
+import playersData from '@/data/players.json'
+import handleNewPlayer from '@/app/api/gets'
 
 export default function Player() {
     const [name, setName] = useState("")
-    const [playerInfo, setPlayerInfo] = useState<IPlayers>({name:"", played: 0})
+    const [players, setPlayers] = useState<[IPlayers] | []>([])
 
     function handlePlayer(e: ChangeEvent<HTMLInputElement>) {
         setName(e.target.value)
     }
 
- 
-    function handleSubmit(e: React.ChangeEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault()
-        setPlayerInfo(
-            {
-                name: name,
-                played: 0 
-            }
-        )
 
-        console.log(playerInfo)
+        const newPlayer = { name: name, played: 0 }
+
+        await handleNewPlayer(newPlayer)              // salva no arquivo
+        setName("")                                   // limpa o input
     }
+
+    useEffect(() => {
+        const formattedPlayers = JSON.stringify(playersData, null, 4)
+        setPlayers(JSON.parse(formattedPlayers))
+    }, [])
 
     return (
         <div className={styles.main}>
@@ -50,8 +45,20 @@ export default function Player() {
             </form>
 
             <h2>Jogadores salvos:</h2>
-
-            <p>{playerInfo.name}</p>
+            <div className={styles.main}>
+                <ul>
+                    {players.map((player, index) => (
+                        <li key={index}>
+                            <h3>{player.name}</h3>
+                            {/* <p>Quantas vezes jogou: {player.played.toString()}</p>
+                            <p>Ultima vez que jogou: {player.lastTimePlayed}</p>
+                            <p>Ultimo jogo: {player.lastGamePlayed}</p>
+                            <p>Ultima vitoria: {player.lastGameWin}</p>
+                            <p>Total de vitorias: {player.wins?.toString()}</p> */}
+                        </li>
+                    ))}
+                </ul>
+            </div>
             
         </div>
     )
