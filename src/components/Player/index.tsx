@@ -18,8 +18,8 @@ export default function Player() {
 
         const newPlayer = { name: name, played: 0 }
 
-        await handleNewPlayer(newPlayer)             
-        setName("")                                   
+        await handleNewPlayer(newPlayer)
+        setName("")
     }
 
     useEffect(() => {
