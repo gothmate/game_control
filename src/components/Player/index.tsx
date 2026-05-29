@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import styles from "../../app/(system)/page.module.sass"
 import {IPlayers} from '@/types/interfaces'
 import playersData from '@/data/players.json'
-import handleNewPlayer from '@/app/api/gets'
+import {handleNewPlayer} from '@/app/api/gets'
 
 export default function Player() {
     const [name, setName] = useState("")
@@ -18,8 +18,8 @@ export default function Player() {
 
         const newPlayer = { name: name, played: 0 }
 
-        await handleNewPlayer(newPlayer)              // salva no arquivo
-        setName("")                                   // limpa o input
+        await handleNewPlayer(newPlayer)
+        setName("")
     }
 
     useEffect(() => {

@@ -1,13 +1,16 @@
 'use client'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import styles from "../../app/(system)/page.module.sass"
 import {IGameInfo} from '@/types/interfaces'
+import { handleNewGame } from '@/app/api/gets'
+import gamesData from '../../data/games.json'
+
 
 
 export default function Boardgames() {
     const [game, setGame] = useState("")
     const [gameType, setGameType] = useState("")
-    const [gameInfo, setGameInfo] = useState<IGameInfo>({name:"", type:""})
+    const [games, setGames] = useState<[IGameInfo] | []>([])
 
     function setGameName(e: ChangeEvent<HTMLInputElement>) {
         setGame(e.target.value)
@@ -17,17 +20,20 @@ export default function Boardgames() {
         setGameType(e.target.value)
     }
 
-    function handleSubmit(e: React.ChangeEvent<HTMLFormElement>) {
-        e.preventDefault()
-        setGameInfo(
-            {
-                name: game,
-                type: gameType
-            }
-        )
 
-        console.log(gameInfo)
+    async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        const newGame = { name: game, type: gameType }
+
+        await handleNewGame(newGame)
     }
+
+    useEffect(() => {
+        const formattedGames = JSON.stringify(gamesData, null, 4)
+        setGames(JSON.parse(formattedGames))
+    }, [])
+    
 
     return (
         <div className={styles.main}>
@@ -50,15 +56,22 @@ export default function Boardgames() {
                     <option value="Blefe e Dedução">Blefe e Dedução</option>
                     <option value="Abstrato">Abstrato</option>
                     <option value="Construção de Baralho">Construção de Baralho</option>
+                    <option value="Vaza">Jogo de Vaza</option>
                 </select>
                 
                 <input type="submit" id="submit" className={styles.btn} value={"Gravar"} />
             </form>
 
-            <h2>Jogos salvos:</h2>
-
-            <p>Nome do Jogo: {gameInfo.name}</p>
-            <p>Tipo: {gameInfo.type}</p>
+            <div className={styles.main}>
+                <h2>Jogos salvos:</h2><br />
+                <ul>
+                    {games.map((gameD, index) => (
+                        <li key={index}>
+                            <h3>{gameD.name} / Tipo: {gameD.type}</h3>
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
         </div>
     )
