@@ -1,58 +1,86 @@
 [
   {
     "name": "Zombicide Rue Morgue",
-    "type": "Coop"
+    "type": "Coop",
+    "maxPlayers": 12,
+    "played": 0
   },
   {
     "name": "Azul",
-    "type": "Abstrato"
+    "type": "Abstrato",
+    "maxPlayers": 5,
+    "played": 0
   },
   {
     "name": "Tiny Epic Dungeon",
-    "type": "Coop"
+    "type": "Coop",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Tiny Epic Vikings",
-    "type": "Euro"
+    "type": "Euro",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Exploding Kittens",
-    "type": "Festa"
+    "type": "Festa",
+    "maxPlayers": 10,
+    "played": 0
   },
   {
     "name": "Zombie Kittens",
-    "type": "Festa"
+    "type": "Festa",
+    "maxPlayers": 5,
+    "played": 0
   },
   {
     "name": "Santorini",
-    "type": "Euro"
+    "type": "Euro",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Busão",
-    "type": "Construção de Baralho"
+    "type": "Construção de Baralho",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Fantasmagória",
-    "type": "Vaza"
+    "type": "Vaza",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Dominó Dungeon",
-    "type": "Euro"
+    "type": "Euro",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Final Girl: A Demon in the Shadows",
-    "type": "Euro"
+    "type": "Euro",
+    "maxPlayers": 1,
+    "played": 0
   },
   {
     "name": "Quartz",
-    "type": "Blefe e Dedução"
+    "type": "Blefe e Dedução",
+    "maxPlayers": 4,
+    "played": 0
   },
   {
     "name": "Carcassonne",
-    "type": "Euro"
+    "type": "Euro",
+    "maxPlayers": 0,
+    "played": 0
   },
   {
     "name": "Carcassonne: the River",
-    "type": "Euro"
+    "type": "Euro",
+    "maxPlayers": 0,
+    "played": 0
   }
 ]
