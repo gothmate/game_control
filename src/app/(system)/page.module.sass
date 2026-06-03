@@ -11,12 +11,9 @@ $button-secondary-hover: #f2f2f2
 $button-secondary-border: #ebebeb
 
 .page
-  display: flex
+  @include variables.flexStyle($content: space-between, $items:center, $direction:column )
   flex: 1
   min-height: 100vh
-  flex-direction: column
-  align-items: center
-  justify-content: space-between
   background: variables.$background_mid
 
 .main 
@@ -28,6 +25,9 @@ $button-secondary-border: #ebebeb
 
 .input
   @include variables.input
+
+.inputNum
+  @include variables.inputNum
 
 .btn
   @include variables.btn

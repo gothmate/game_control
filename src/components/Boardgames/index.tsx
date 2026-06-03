@@ -9,11 +9,16 @@ import gamesData from '../../data/games.json'
 
 export default function Boardgames() {
     const [game, setGame] = useState("")
+    const [players, setPlayers] = useState(1)
     const [gameType, setGameType] = useState("")
     const [games, setGames] = useState<[IGameInfo] | []>([])
 
     function setGameName(e: ChangeEvent<HTMLInputElement>) {
         setGame(e.target.value)
+    }
+
+    function setMaxPlayers(e: ChangeEvent<HTMLInputElement>) {
+        setPlayers(Number(e.target.value))
     }
 
     function setGameTypeName(e: ChangeEvent<HTMLSelectElement>) {
@@ -24,7 +29,7 @@ export default function Boardgames() {
     async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        const newGame = { name: game, type: gameType }
+        const newGame = { name: game, type: gameType, maxPlayers: players, played: 0}
 
         await handleNewGame(newGame)
     }
@@ -48,6 +53,15 @@ export default function Boardgames() {
                     value={game}
                     onChange={setGameName}
                 />
+                <span>Até quantos jogadores?</span><br/>
+                <input 
+                    type="number"
+                    name="players"
+                    className={styles.inputNum}
+                    value={players}
+                    onChange={setMaxPlayers}
+                /><br/>
+                <span>Escolha o tipo de jogo:</span>
                 <select id="type" name="tipos" className={styles.input} onChange={setGameTypeName}>
                     <option value="none">----------------------</option>
                     <option value="Euro">Eurogame - Planejamento</option>

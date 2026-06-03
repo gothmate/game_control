@@ -7,20 +7,23 @@ export interface IPlayers {
     lastGameWin?: String
 }
 
+
 export interface IGameInfo {
     name: String
     type: String
+    maxPlayers: Number
+    played?: Number
+    lastPlayed?: String
+    lastWinner?: String
+    wins?: Number
+    winner?: String
 }
 
 export interface PlayData {
     players: [IPlayers]
-    game: {
-        todayGame: String
-        played: Number
-        lastPlayed?: String
-        lastWinner?: String
-        wins?: Number
-        winner?: String
+    todayGame: {
+        game: IGameInfo
+        duration: String
     }
 }
 
