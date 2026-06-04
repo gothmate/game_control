@@ -4,8 +4,8 @@ import { useState, useEffect, useRef, useCallback, ChangeEvent } from "react"
 import styles from '@/app/(system)/page.module.sass'
 import { ITodayGame, PlayingState } from "@/types/interfaces"
 import {capitalizeFirstLetter, formatDate, formatTime} from "@/wrappers/functions"
-import gamesData from '../../../data/games.json'
-import playersData from '../../../data/players.json'
+import gamesData from '@/app/../data/games.json'
+import playersData from '@/app/../data/players.json'
 import Footer from "@/components/Footer"
 
 
@@ -92,7 +92,13 @@ export default function Playing() {
         )
       }
     })
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    setIsRunning(false)
     console.log(gamePlayed)
+  }
+
+  function handleRecSession() {
+
   }
 
 
@@ -195,6 +201,10 @@ export default function Playing() {
 
                 <button onClick={handleReset} className={styles.btn}>
                     ↺
+                </button>
+
+                <button onClick={handleRecSession} className={styles.btn}>
+                    ⏹ Finalizar jogo
                 </button>
             </div>
 
