@@ -29,7 +29,16 @@ export default function Boardgames() {
     async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        const newGame = { name: game, type: gameType, maxPlayers: players, played: 0}
+        const newGame = { 
+            name: game, 
+            type: gameType, 
+            maxPlayers: players, 
+            played: 0,
+            lastWinner: "",
+            wins: 0,
+            winner: "",
+            lastGameDuration: ""
+        }
 
         await handleNewGame(newGame)
     }

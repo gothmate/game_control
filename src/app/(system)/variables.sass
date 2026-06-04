@@ -40,13 +40,9 @@ $linear: linear-gradient(to bottom, #434343 60%, #212121)
 
 @mixin flexStyle($content, $items, $direction:none)
     display: flex
-    @if($content == none)
-        align-items: $items
-    @if($items == none)        
-        justify-content: $content
     @if($direction == none)        
-        flex-direction: $direction
+        flex-direction: row
     @else     
-        justify-content: $content
-        align-items: $items
         flex-direction: $direction
+    justify-content: $content
+    align-items: $items

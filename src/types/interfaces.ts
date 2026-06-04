@@ -17,17 +17,16 @@ export interface IGameInfo {
     lastWinner?: String
     wins?: Number
     winner?: String
+    lastGameDuration?: String
 }
 
-export interface PlayData {
-    players: [IPlayers]
-    todayGame: {
-        game: IGameInfo
-        duration: String
-    }
+export interface ITodayGame {
+    players: [IPlayers]|null
+    game: IGameInfo
+    duration: String
 }
 
 export interface PlayingState {
-  date: String
-  time: String
+    date: String
+    time: String
 }

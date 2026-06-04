@@ -3,84 +3,140 @@
     "name": "Zombicide Rue Morgue",
     "type": "Coop",
     "maxPlayers": 12,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Azul",
     "type": "Abstrato",
     "maxPlayers": 5,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Tiny Epic Dungeon",
     "type": "Coop",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Tiny Epic Vikings",
     "type": "Euro",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Exploding Kittens",
     "type": "Festa",
     "maxPlayers": 10,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Zombie Kittens",
     "type": "Festa",
     "maxPlayers": 5,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Santorini",
     "type": "Euro",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Busão",
     "type": "Construção de Baralho",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Fantasmagória",
     "type": "Vaza",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Dominó Dungeon",
     "type": "Euro",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Final Girl: A Demon in the Shadows",
     "type": "Euro",
     "maxPlayers": 1,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Quartz",
     "type": "Blefe e Dedução",
     "maxPlayers": 4,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Carcassonne",
     "type": "Euro",
     "maxPlayers": 0,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   },
   {
     "name": "Carcassonne: the River",
     "type": "Euro",
     "maxPlayers": 0,
-    "played": 0
+    "played": 0,
+    "lastWinner": "",
+    "wins": 0,
+    "winner": "",
+    "lastGameDuration": ""
   }
 ]
