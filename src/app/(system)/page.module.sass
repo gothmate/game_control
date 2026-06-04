@@ -23,6 +23,19 @@ $button-secondary-border: #ebebeb
   background-color: variables.$foreground
   padding: 2rem
 
+.field
+  @include variables.flexStyle($content: flex-start, $items: center, $direction: none)
+  padding: 0.5rem
+  border-radius: 5px
+  margin-block: 1rem
+  flex-wrap: wrap
+  
+  & .check
+    @include variables.flexStyle($content: center, $items: space-between, $direction: none)
+    margin: 0.5rem
+    & label
+      margin-left: 0.5rem 
+
 .input
   @include variables.input
 
@@ -33,11 +46,11 @@ $button-secondary-border: #ebebeb
   @include variables.btn
 
 .footer 
-  @include variables.flexStyle(flex-end, none , none)
+  @include variables.flexStyle($content: flex-end, $items: center, $direction: none)
+  width: 100vw
   bottom: 0
   font-size: 0.8rem
   font-weight: 200
-  width: 100vw
   color: variables.$background
   padding-block: 1rem
   padding-inline: 3rem

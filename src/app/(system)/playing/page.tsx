@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef, useCallback, ChangeEvent } from "react"
 import styles from '@/app/(system)/page.module.sass'
-import { PlayingState } from "@/types/interfaces"
-import {capitalizeFirstLetter} from "@/wrappers/functions"
-import gamesData from '../../../data/games.json'
-import playersData from '../../../data/players.json'
+import { ITodayGame, PlayingState } from "@/types/interfaces"
+import {capitalizeFirstLetter, formatDate, formatTime} from "@/wrappers/functions"
+import gamesData from '@/app/../data/games.json'
+import playersData from '@/app/../data/players.json'
+import Footer from "@/components/Footer"
 
 
 export default function Playing() {
@@ -13,6 +14,9 @@ export default function Playing() {
     date: "",
     time: "00:00:00",
   })
+
+  const [gamePlayed, setGamePlayed] = useState<ITodayGame | null>()
+
   const [onGame, setOnGame] = useState(1)
   const [game, setGame] = useState('')
   const [playersNow, setPlayersNow] = useState(1)
@@ -22,25 +26,6 @@ export default function Playing() {
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const startTimeRef = useRef<number>(0)
-
-  const formatTime = (ms: number): string => {
-    const totalSeconds = Math.floor(ms / 1000)
-    const hours = Math.floor(totalSeconds / 3600)
-    const minutes = Math.floor((totalSeconds % 3600) / 60)
-    const seconds = totalSeconds % 60
-    return [hours, minutes, seconds]
-      .map((v) => String(v).padStart(2, "0"))
-      .join(":")
-  }
-
-  const formatDate = (d: Date): string => {
-    return d.toLocaleDateString("pt-BR", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
-  }
 
   const tick = useCallback(() => {
     const now = Date.now()
@@ -87,6 +72,35 @@ export default function Playing() {
     setPlayersNow(Number(e.target.value))
   }
 
+  function handleGameSession() {
+    gamesData.forEach(element => {
+      if(element.name == game) {
+        setGamePlayed(
+          {
+            players:null,
+            game:{
+              ...element,
+              played: element.played + 1,
+              lastPlayed: session.date,
+              lastWinner: element.lastWinner,
+              wins: element.wins +1,
+              winner: "",
+              lastGameDuration: element.lastGameDuration
+            },
+            duration: session.time
+          }
+        )
+      }
+    })
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    setIsRunning(false)
+    console.log(gamePlayed)
+  }
+
+  function handleRecSession() {
+
+  }
+
 
   useEffect(() => {
     gamesData.forEach(element => {
@@ -123,11 +137,11 @@ export default function Playing() {
             ))}
           </select>
         </div>
-        <fieldset>
+        <fieldset className={styles.field}>
           <legend>Quem vai jogar?</legend>
           {playersData.map((player, index) => (
-            <div>
-              <input type="checkbox" value={player.name} key={index} id={player.name} name={player.name} />
+            <div key={index+"-"+player.name} id={index+"-"+player.name} className={styles.check}>
+              <input type="checkbox" key={index} id={player.name} name={player.name} />
               <label htmlFor={player.name}> {capitalizeFirstLetter(player.name)}</label>
             </div>
           ))}
@@ -179,7 +193,7 @@ export default function Playing() {
                     </button>
                 ) : (
                     <button
-                    onClick={handleStop}
+                    onClick={handleGameSession}
                     className={styles.btn}>
                     ⏸ Pausar
                     </button>
@@ -187,6 +201,10 @@ export default function Playing() {
 
                 <button onClick={handleReset} className={styles.btn}>
                     ↺
+                </button>
+
+                <button onClick={handleRecSession} className={styles.btn}>
+                    ⏹ Finalizar jogo
                 </button>
             </div>
 
@@ -211,6 +229,7 @@ export default function Playing() {
             }
         `}</style>
       </main>
+      <Footer />
     </div>
   )
 }

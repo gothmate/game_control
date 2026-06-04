@@ -1,7 +1,7 @@
 [
   {
     "name": "Gabriel Correia",
-    "played": 1
+    "played": 0
   },
   {
     "name": "Thiago Renner",
@@ -9,6 +9,26 @@
   },
   {
     "name": "Andrew Maciel",
+    "played": 0
+  },
+  {
+    "name": "Samy Rodrigues",
+    "played": 0
+  },
+  {
+    "name": "Leandro Cardoso",
+    "played": 0
+  },
+  {
+    "name": "Filipe Hannibal",
+    "played": 0
+  },
+  {
+    "name": "Rodrigo Oliveira",
+    "played": 0
+  },
+  {
+    "name": "Rodrigo Chiesa",
     "played": 0
   }
 ]
