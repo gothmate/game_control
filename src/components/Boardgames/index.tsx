@@ -2,7 +2,7 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import styles from "../../app/(system)/page.module.sass"
 import {IGameInfo} from '@/types/interfaces'
-import { handleNewGame } from '@/app/api/gets'
+import { addNewGame } from '@/app/api/gets'
 import gamesData from '../../data/games.json'
 
 
@@ -40,7 +40,7 @@ export default function Boardgames() {
             lastGameDuration: ""
         }
 
-        await handleNewGame(newGame)
+        await addNewGame(newGame)
     }
 
     useEffect(() => {
@@ -87,13 +87,19 @@ export default function Boardgames() {
 
             <div className={styles.main}>
                 <h2>Jogos salvos:</h2><br />
-                <ul>
-                    {games.map((gameD, index) => (
-                        <li key={index}>
-                            <h3>{gameD.name} / Tipo: {gameD.type}</h3>
-                        </li>
-                    ))}
-                </ul>
+                {games.map((gameD, index) => (
+                    <div key={index}>
+                        <fieldset className={styles.field}>
+                            <legend>{gameD.name} / Tipo: {gameD.type}</legend>
+                            <div>
+                                <p>Jogado {gameD.played} veze(s)</p>
+                                <p>Último vencedor: {gameD.lastWinner}</p>
+                                <p>Duração do último jogo: {gameD.lastGameDuration}</p>
+                                <p>Jogado pela última vez: {gameD.lastPlayed}</p>
+                            </div>
+                        </fieldset>
+                    </div>
+                ))}
             </div>
 
         </div>

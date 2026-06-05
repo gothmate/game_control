@@ -1,34 +1,66 @@
 [
   {
     "name": "Gabriel Correia",
-    "played": 0
+    "played": 20,
+    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
+    "lastGamePlayed": "Jogo Teste",
+    "wins": 1,
+    "lastGameWin": "Fantasmagória"
   },
   {
     "name": "Thiago Renner",
-    "played": 0
+    "played": 24,
+    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
+    "lastGamePlayed": "Jogo Teste",
+    "wins": 4,
+    "lastGameWin": "Santorini"
   },
   {
     "name": "Andrew Maciel",
-    "played": 0
+    "played": 2,
+    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
+    "lastGamePlayed": "Fantasmagória",
+    "wins": 1,
+    "lastGameWin": "Final Girl: A Demon in the Shadows"
   },
   {
     "name": "Samy Rodrigues",
-    "played": 0
+    "played": 4,
+    "wins": 1,
+    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
+    "lastGamePlayed": "Azul",
+    "lastGameWin": "Azul"
   },
   {
     "name": "Leandro Cardoso",
-    "played": 0
+    "played": 6,
+    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
+    "lastGamePlayed": "Jogo Teste",
+    "wins": 1,
+    "lastGameWin": "Jogo Teste"
   },
   {
     "name": "Filipe Hannibal",
-    "played": 0
+    "played": 2,
+    "lastTimePlayed": "Quinta-feira, 4 De Junho De 2026",
+    "lastGamePlayed": "Tiny Epic Dungeon",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Rodrigo Oliveira",
-    "played": 0
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Rodrigo Chiesa",
-    "played": 0
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   }
 ]

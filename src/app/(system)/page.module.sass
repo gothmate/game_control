@@ -25,10 +25,16 @@ $button-secondary-border: #ebebeb
 
 .field
   @include variables.flexStyle($content: flex-start, $items: center, $direction: none)
-  padding: 0.5rem
+  padding: 0.6rem
   border-radius: 5px
+  border: 2px solid 
   margin-block: 1rem
   flex-wrap: wrap
+  & legend
+    padding: 0.5rem
+    font-size: 1.2rem
+    font-weight: 500
+    color: variables.$lightgray-color
   
   & .check
     @include variables.flexStyle($content: center, $items: space-between, $direction: none)

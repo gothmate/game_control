@@ -3,11 +3,11 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import styles from "../../app/(system)/page.module.sass"
 import {IPlayers} from '@/types/interfaces'
 import playersData from '@/data/players.json'
-import {handleNewPlayer} from '@/app/api/gets'
+import {addNewPlayer} from '@/app/api/gets'
 
 export default function Player() {
     const [name, setName] = useState("")
-    const [players, setPlayers] = useState<[IPlayers] | []>([])
+    const [players, setPlayers] = useState<[IPlayers]>([{  name: "",  played: 0, wins: 0, lastTimePlayed: "", lastGamePlayed: "", lastGameWin: "" }])
 
     function handlePlayer(e: ChangeEvent<HTMLInputElement>) {
         setName(e.target.value)
@@ -16,9 +16,16 @@ export default function Player() {
     async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        const newPlayer = { name: name, played: 0 }
+        const newPlayer = { 
+            name: name, 
+            played: 0,
+            wins: 0,
+            lastTimePlayed: "",
+            lastGamePlayed: "",
+            lastGameWin: "" 
+        }
 
-        await handleNewPlayer(newPlayer)
+        await addNewPlayer(newPlayer)
         setName("")
     }
 
@@ -46,18 +53,20 @@ export default function Player() {
 
             <h2>Jogadores salvos:</h2>
             <div className={styles.main}>
-                <ul>
-                    {players.map((player, index) => (
-                        <li key={index}>
-                            <h3>{player.name}</h3>
-                            {/* <p>Quantas vezes jogou: {player.played.toString()}</p>
+                
+                {players.map((player, index) => (
+                    <fieldset className={styles.field} key={index}>
+                        <legend>{player.name}</legend>
+                        <div>
+                            <p>Quantas vezes jogou: {player.played.toString()}</p>
                             <p>Ultima vez que jogou: {player.lastTimePlayed}</p>
                             <p>Ultimo jogo: {player.lastGamePlayed}</p>
                             <p>Ultima vitoria: {player.lastGameWin}</p>
-                            <p>Total de vitorias: {player.wins?.toString()}</p> */}
-                        </li>
-                    ))}
-                </ul>
+                            <p>Total de vitorias: {player.wins?.toString()}</p>
+                        </div>
+                    </fieldset>
+                ))}
+            
             </div>
             
         </div>
