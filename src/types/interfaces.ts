@@ -1,32 +1,31 @@
 export interface IPlayers {
-    name: String
-    played: Number
-    wins?: Number
-    lastTimePlayed?: String
-    lastGamePlayed?: String
-    lastGameWin?: String
+    name: string
+    played: number
+    wins: number
+    lastTimePlayed: string
+    lastGamePlayed: string
+    lastGameWin: string
 }
 
 
 export interface IGameInfo {
-    name: String
-    type: String
-    maxPlayers: Number
-    played?: Number
-    lastPlayed?: String
-    lastWinner?: String
-    wins?: Number
-    winner?: String
-    lastGameDuration?: String
+    name: string
+    type: string
+    maxPlayers: number
+    played: number
+    lastPlayed: string
+    lastWinner: string
+    wins: number
+    winner: string
+    lastGameDuration: string
 }
 
 export interface ITodayGame {
-    players: [IPlayers]|null
+    players: string[]
     game: IGameInfo
-    duration: String
 }
 
 export interface PlayingState {
-    date: String
-    time: String
+    date: string
+    time: string
 }

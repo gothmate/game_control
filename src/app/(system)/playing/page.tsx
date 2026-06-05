@@ -7,6 +7,7 @@ import {capitalizeFirstLetter, formatDate, formatTime} from "@/wrappers/function
 import gamesData from '@/app/../data/games.json'
 import playersData from '@/app/../data/players.json'
 import Footer from "@/components/Footer"
+import { addGameSession } from "@/app/api/gets"
 
 
 export default function Playing() {
@@ -15,11 +16,15 @@ export default function Playing() {
     time: "00:00:00",
   })
 
-  const [gamePlayed, setGamePlayed] = useState<ITodayGame | null>()
+  const [gamePlayed, setGamePlayed] = useState<ITodayGame | null>(null)
 
   const [onGame, setOnGame] = useState(1)
   const [game, setGame] = useState('')
   const [playersNow, setPlayersNow] = useState(1)
+
+  const [selectedPlayers, setSelectedPlayers] = useState<string[]>([])
+  const [winner, setWinner] = useState("")
+  const [showWinnerSelect, setShowWinnerSelect] = useState(false)
 
   const [isRunning, setIsRunning] = useState(false)
   const [elapsed, setElapsed] = useState(0) // ms
@@ -65,42 +70,58 @@ export default function Playing() {
 
   function handleGame(e:ChangeEvent<HTMLSelectElement, HTMLSelectElement>) {
     setGame(e.target.value)
-    console.log(game)
   }
 
+  function handlePlayerCheck(playerName: string) {
+    setSelectedPlayers(prev =>
+    prev.includes(playerName)
+      ? prev.filter(p => p !== playerName)
+      : [...prev, playerName]
+  )
+}
   function handlePlayers(e:ChangeEvent<HTMLSelectElement, HTMLSelectElement>) {
     setPlayersNow(Number(e.target.value))
   }
 
   function handleGameSession() {
+
+    
     gamesData.forEach(element => {
-      if(element.name == game) {
-        setGamePlayed(
-          {
-            players:null,
-            game:{
-              ...element,
-              played: element.played + 1,
-              lastPlayed: session.date,
-              lastWinner: element.lastWinner,
-              wins: element.wins +1,
-              winner: "",
-              lastGameDuration: element.lastGameDuration
-            },
-            duration: session.time
+      if (element.name === game) {
+        setGamePlayed({
+          players: selectedPlayers,
+          game: {
+            name: element.name,
+            type: element.type,
+            maxPlayers: element.maxPlayers,
+            played: element.played + 1,
+            lastPlayed: session.date,
+            lastWinner: winner,
+            wins: element.wins + 1,
+            winner: winner,
+            lastGameDuration: session.time
           }
-        )
+        })
+        console.log("jogo", element.name)
       }
     })
+  
+}
+
+  function handlePause() {
     if (intervalRef.current) clearInterval(intervalRef.current)
     setIsRunning(false)
-    console.log(gamePlayed)
+    setShowWinnerSelect(true)
   }
 
   function handleRecSession() {
-
+    handleGameSession()
+    console.log("winner: ", winner)
+    if(winner != "") {
+      addGameSession(gamePlayed as ITodayGame)
+      console.log("Game Played", gamePlayed)
+    }
   }
-
 
   useEffect(() => {
     gamesData.forEach(element => {
@@ -139,13 +160,26 @@ export default function Playing() {
         </div>
         <fieldset className={styles.field}>
           <legend>Quem vai jogar?</legend>
+
           {playersData.map((player, index) => (
-            <div key={index+"-"+player.name} id={index+"-"+player.name} className={styles.check}>
-              <input type="checkbox" key={index} id={player.name} name={player.name} />
-              <label htmlFor={player.name}> {capitalizeFirstLetter(player.name)}</label>
+            <div
+              key={index + "-" + player.name}
+              className={styles.check}
+            >
+              <input
+                type="checkbox"
+                id={player.name}
+                checked={selectedPlayers.includes(player.name)}
+                onChange={() => handlePlayerCheck(player.name)}
+              />
+
+              <label htmlFor={player.name}>
+                {capitalizeFirstLetter(player.name)}
+              </label>
             </div>
           ))}
         </fieldset>
+
 
         <div>
             {/* Header */}
@@ -193,7 +227,7 @@ export default function Playing() {
                     </button>
                 ) : (
                     <button
-                    onClick={handleGameSession}
+                    onClick={handlePause}
                     className={styles.btn}>
                     ⏸ Pausar
                     </button>
@@ -221,6 +255,29 @@ export default function Playing() {
             {isRunning ? "Cronômetro ativo" : elapsed > 0 ? "Pausado" : "Aguardando início"}
             </div>
         </div>
+
+        {showWinnerSelect && (
+          <fieldset className={styles.field}>
+            <legend>Quem venceu?</legend>
+
+            {selectedPlayers.map(player => (
+              <div key={player}>
+                <input
+                  type="radio"
+                  id={`winner-${player}`}
+                  name="winner"
+                  value={player}
+                  checked={winner === player}
+                  onChange={(e) => setWinner(capitalizeFirstLetter(e.target.value))}
+                />
+
+                <label htmlFor={`winner-${player}`}>
+                  { capitalizeFirstLetter(player)}
+                </label>
+              </div>
+            ))}
+          </fieldset>
+        )}
 
         <style jsx>{`
             @keyframes pulse {
