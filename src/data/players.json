@@ -1,49 +1,49 @@
 [
   {
     "name": "Gabriel Correia",
-    "played": 20,
-    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
-    "lastGamePlayed": "Jogo Teste",
-    "wins": 1,
-    "lastGameWin": "Fantasmagória"
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Thiago Renner",
-    "played": 24,
-    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
-    "lastGamePlayed": "Jogo Teste",
-    "wins": 4,
-    "lastGameWin": "Santorini"
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Andrew Maciel",
-    "played": 2,
-    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
-    "lastGamePlayed": "Fantasmagória",
-    "wins": 1,
-    "lastGameWin": "Final Girl: A Demon in the Shadows"
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Samy Rodrigues",
-    "played": 4,
-    "wins": 1,
-    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
-    "lastGamePlayed": "Azul",
-    "lastGameWin": "Azul"
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Leandro Cardoso",
-    "played": 6,
-    "lastTimePlayed": "Sexta-feira, 5 De Junho De 2026",
-    "lastGamePlayed": "Jogo Teste",
-    "wins": 1,
-    "lastGameWin": "Jogo Teste"
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
   },
   {
     "name": "Filipe Hannibal",
-    "played": 2,
-    "lastTimePlayed": "Quinta-feira, 4 De Junho De 2026",
-    "lastGamePlayed": "Tiny Epic Dungeon",
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
     "wins": 0,
     "lastGameWin": ""
   },
@@ -57,6 +57,14 @@
   },
   {
     "name": "Rodrigo Chiesa",
+    "played": 0,
+    "lastTimePlayed": "",
+    "lastGamePlayed": "",
+    "wins": 0,
+    "lastGameWin": ""
+  },
+  {
+    "name": "Felipe Daen",
     "played": 0,
     "lastTimePlayed": "",
     "lastGamePlayed": "",

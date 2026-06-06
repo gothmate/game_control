@@ -66,6 +66,11 @@ export default function Playing() {
     setIsRunning(false)
     setElapsed(0)
     setSession({ date: "", time: "00:00:00" })
+    setShowWinnerSelect(false)
+    setWinner("")
+    setSelectedPlayers([])
+    setPlayersNow(1)
+    setGamePlayed(null)
   }
 
   function handleGame(e:ChangeEvent<HTMLSelectElement, HTMLSelectElement>) {
@@ -102,7 +107,6 @@ export default function Playing() {
             lastGameDuration: session.time
           }
         })
-        console.log("jogo", element.name)
       }
     })
   
@@ -114,12 +118,11 @@ export default function Playing() {
     setShowWinnerSelect(true)
   }
 
-  function handleRecSession() {
+  async function handleRecSession() {
     handleGameSession()
     console.log("winner: ", winner)
     if(winner != "") {
       addGameSession(gamePlayed as ITodayGame)
-      console.log("Game Played", gamePlayed)
     }
   }
 
@@ -140,6 +143,9 @@ export default function Playing() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <div className={styles.content}>
+          <a className={styles.btn} href="/">Home</a>
+        </div>
       
         <div>
           <span>Qual jogo vai iniciar?</span>
