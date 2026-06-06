@@ -50,7 +50,10 @@ export default function Boardgames() {
     
 
     return (
-        <div className={styles.main}>
+        <main className={styles.main}>
+            <div className={styles.content}>
+                <a className={styles.btn} href="/">Home</a>
+            </div>
             <h2>Games</h2>
             <h3>Registre seus jogos!</h3>
             <form id="saveGame" className={styles.content} onSubmit={handleSubmit}>
@@ -101,7 +104,9 @@ export default function Boardgames() {
                     </div>
                 ))}
             </div>
-
-        </div>
+            <a className={styles.btn} href="/">
+                Home
+            </a>
+        </main>
     )
 }

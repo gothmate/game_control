@@ -36,6 +36,9 @@ export default function Player() {
 
     return (
         <div className={styles.main}>
+            <div className={styles.content}>
+                <a className={styles.btn} href="/">Home</a>
+            </div>
             <h2>Jogadores</h2>
             <h3>Registre os Jogadores!</h3>
             <form id="savePlayer" className={styles.content} onSubmit={handleSubmit}>
@@ -68,7 +71,9 @@ export default function Player() {
                 ))}
             
             </div>
-            
+            <a className={styles.btn} href="/">
+                Home
+            </a>
         </div>
     )
 }

@@ -40,6 +40,7 @@ export async function addNewGame(newGame: {name: string; type: string} ) {
 export async function addGameSession(newSession: ITodayGame) {
     const gamesFilePath = "./src/data/games.json"
     const playersFilePath = "./src/data/players.json"
+    const lastResultFilePath = "./src/data/lastResult.json"
 
     try {
         // Carrega os arquivos
@@ -51,11 +52,13 @@ export async function addGameSession(newSession: ITodayGame) {
             await fs.readFile(playersFilePath, "utf-8")
         )
 
+        const lastResult = JSON.parse(
+            await fs.readFile(lastResultFilePath, "utf-8")
+        )
+
         const gameIndex = gamesData.findIndex(
             (game: IGameInfo) => game.name === newSession.game.name
         )
-
-        console.log("game recebido:::::: ", newSession.game)
 
         if (gameIndex !== -1) {
             gamesData[gameIndex] = {
@@ -83,6 +86,12 @@ export async function addGameSession(newSession: ITodayGame) {
             console.log("Jogo vencido:")
             console.log(player.lastGameWin)
         })
+
+        await fs.writeFile(
+            lastResultFilePath,
+            JSON.stringify(newSession, null, 2),
+            "utf-8"
+        )
 
         await fs.writeFile(
             gamesFilePath,
