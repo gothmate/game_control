@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Esse é um projeto para registro de jogos de Boardgames.
+Possui 4 endpoints (/, /games, /players, /playing)
 
-## Getting Started
+- ### HOME ###
+    - Na home, são mostradas informações do último jogo.
 
-First, run the development server:
+- ### Games ### 
+    - Aqui fica o registro dos jogos.
+    - Nome do jogo, quantidade máxima de jogadores e tipo de jogo
+    - Nesse endpoint também são mostrados os jogos já registrados e suas performances.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- ### Players ###
+    - Aqui fica o registro de jogadores
+    - O endpoint mostra a performance dos jogadores.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ### Playing ###
+    - Aqui você registra o início de uma partida
+    - primeiro escolha o jogo
+    - quantas pessoas vão jogar
+    - quem serão os jogadores
+    - Na área de Iniciar Sessão, clique em "Iniciar" para o cronômetro iniciar a contagem
+    - Quando o jogo terminar, clique em "Pausar" para poder selecionar o vencedor.
+    - Depois clique em "Finalizar jogo". (estamos com um pequeno bug, onde para registrar fim de partide precisa clicar uma segunda vez).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Quando você volta para a Home, verá o registro do jogo, que será adicionado aos dados separedos dos jogadores e dos boardgames registrados.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Os registros são feitos de forma simples em arquivos JSON, sem necessidade de um serviço de Banco de Dados e podem ser alterados manualmente, caso você conheça a estrutura JSON.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## CLONE
+Ao clonar esse repositório, use o comando "npm install" para adicionar as dependências e dopois "npm run build" para buildar sua versão final.
+Para rodar o projeto basta abrir o terminal ou seu editor de código e digitar "npm start"
