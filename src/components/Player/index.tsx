@@ -35,7 +35,7 @@ export default function Player() {
     }, [])
 
     return (
-        <div className={styles.main}>
+        <main className={styles.main}>
             <div className={styles.content}>
                 <a className={styles.btn} href="/">Home</a>
             </div>
@@ -55,7 +55,7 @@ export default function Player() {
             </form>
 
             <h2>Jogadores salvos:</h2>
-            <div className={styles.main}>
+            <div className={styles.content}>
                 
                 {players.map((player, index) => (
                     <fieldset className={styles.field} key={index}>
@@ -74,6 +74,6 @@ export default function Player() {
             <a className={styles.btn} href="/">
                 Home
             </a>
-        </div>
+        </main>
     )
 }

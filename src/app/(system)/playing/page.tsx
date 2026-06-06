@@ -187,79 +187,85 @@ export default function Playing() {
         </fieldset>
 
 
-        <div>
-            {/* Header */}
-            <div>
+        <div className={styles.centerContent}>
+            <fieldset className={styles.field}>
+              <legend className={styles.legend}>Iniciar sessão de jogo</legend>
+              {/* Header */}
+              <div className={styles.centerContent}>
                 <span> ▶ Jogando {game} com {playersNow} jogador(es)</span>
-                <h1>Session</h1>
-            </div>
+                <h1>Sessão de Jogo</h1>
 
-            {/* Clock Display */}
-            <div>
-            {/* Glow ring when running */}
-            {isRunning && (
-                <div/>
-            )}
 
-            {/* State debug badge */}
-            <div> 
-                <span>
-                    Data:{" "}
-                    <span className="text-[#a78bfa]">
-                        {session.date ? `${session.date}  ` : 'Nao iniciada '}
-                    </span>
-                </span>
-                <p>
-                    Tempo decorrido: <span
-                    className="text-6xl font-bold tracking-widest tabular-nums"
-                    style={{
-                    color: isRunning ? "#4ade80" : "#e5e7eb",
-                    textShadow: isRunning
-                        ? "0 0 30px rgba(74,222,128,0.5)"
-                        : "none",
-                    transition: "color 0.3s, text-shadow 0.3s",
-                    }}>{session.time}</span>
-                </p>
-            </div>
-            </div>
-
-            {/* Controls */}
-            <div className="flex gap-3">
-                {!isRunning ? (
-                    <button
-                    onClick={handleStart}
-                    className={styles.btn}>
-                    ▶ {elapsed > 0 ? "Retomar" : "Iniciar"}
-                    </button>
-                ) : (
-                    <button
-                    onClick={handlePause}
-                    className={styles.btn}>
-                    ⏸ Pausar
-                    </button>
+                {/* Clock Display */}
+                <div>
+                {/* Glow ring when running */}
+                {isRunning && (
+                  <div/>
                 )}
 
-                <button onClick={handleReset} className={styles.btn}>
-                    ↺
-                </button>
+                {/* State debug badge */}
+                <div> 
+                    <span>
+                        Data:{" "}
+                        <span className="text-[#a78bfa]">
+                            {session.date ? `${session.date}  ` : 'Não iniciada '}
+                        </span>
+                    </span>
+                    <p>
+                        Tempo decorrido: <span
+                        className="text-6xl font-bold tracking-widest tabular-nums"
+                        style={{
+                          color: isRunning ? "#4ade80" : "#e5e7eb",
+                          textShadow: isRunning
+                          ? "0 0 30px rgba(74,222,128,0.5)"
+                          : "none",
+                          transition: "color 0.3s, text-shadow 0.3s",
+                        }}>{session.time}</span>
+                    </p>
+                </div>
+                </div>
+                <div>
+                  {/* Controls */}
+                  <div className="flex gap-3">
+                      {!isRunning ? (
+                          <button
+                          onClick={handleStart}
+                          className={styles.btn}>
+                          ▶ {elapsed > 0 ? "Retomar" : "Iniciar"}
+                          </button>
+                      ) : (
+                          <button
+                          onClick={handlePause}
+                          className={styles.btn}>
+                          ⏸ Pausar
+                          </button>
+                      )}
 
-                <button onClick={handleRecSession} className={styles.btn}>
-                    ⏹ Finalizar jogo
-                </button>
-            </div>
+                      <button onClick={handleReset} className={styles.btn}>
+                          ↺
+                      </button>
 
-            {/* Status indicator */}
-            <div>
-            <span
-                className="w-2 h-2 rounded-full"
-                style={{
-                    background: isRunning ? "#4ade80" : "#374151",
-                    boxShadow: isRunning ? "0 0 8px rgba(74,222,128,0.8)" : "none",
-                    animation: isRunning ? "pulse 1s infinite" : "none",
-                }}
-            />
-            {isRunning ? "Cronômetro ativo" : elapsed > 0 ? "Pausado" : "Aguardando início"}
-            </div>
+                      <button onClick={handleRecSession} className={styles.btn}>
+                          ⏹ Finalizar jogo
+                      </button>
+                  </div>
+
+                  {/* Status indicator */}
+                  <div>
+                  <span
+                      className="w-2 h-2 rounded-full"
+                      style={{
+                          background: isRunning ? "#4ade80" : "#374151",
+                          boxShadow: isRunning ? "0 0 8px rgba(74,222,128,0.8)" : "none",
+                          animation: isRunning ? "pulse 1s infinite" : "none",
+                      }}
+                  />
+                  {isRunning ? "Cronômetro ativo" : elapsed > 0 ? "Pausado" : "Aguardando início"}
+                  </div>   
+                </div>
+              </div>
+            </fieldset>
+
         </div>
 
         {showWinnerSelect && (
