@@ -22,7 +22,9 @@ $button-secondary-border: #ebebeb
   max-width: 800px
   background-color: variables.$foreground
   padding: 2rem
-
+  border-radius: 0 0 15px 15px
+  margin-bottom: 2rem
+  box-shadow: 4px 6px 15px #03133a9b
 .content
   margin-bottom: 2rem
 
@@ -38,8 +40,10 @@ $button-secondary-border: #ebebeb
 .field
   @include variables.flexStyle($content: flex-start, $items: center, $direction: none)
   padding: 0.6rem
+  background: #2b2b2b78
   border-radius: 5px
-  border: 2px solid 
+  border: 2px solid #6194a1
+  text-shadow: 2px 2px 5px #49aacd97
   margin-block: 1rem
   flex-wrap: wrap
   & legend
@@ -62,6 +66,9 @@ $button-secondary-border: #ebebeb
 
 .btn
   @include variables.btn
+
+.centerContent
+  @include variables.flexStyle($content: space-between, $items: center, $direction: column)
 
 .footer 
   @include variables.flexStyle($content: flex-end, $items: center, $direction: none)

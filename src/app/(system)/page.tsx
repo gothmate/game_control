@@ -7,11 +7,13 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>Home</h1><br />
-        <div className={styles.content}>
-          <a href="/playing" className={styles.btn}>Iniciar um jogo</a>
-          <a href="/games" className={styles.btn}>Registrar um jogo</a>
-          <a href="/players" className={styles.btn}>Registrar um jogador</a>
+        <div className={styles.centerContent}>
+          <h1>Registradora de jogos de Boardgames</h1><br />
+          <div className={styles.content}>
+            <a href="/playing" className={styles.btn}>Iniciar um jogo</a>
+            <a href="/games" className={styles.btn}>Registrar um jogo</a>
+            <a href="/players" className={styles.btn}>Registrar um jogador</a>
+          </div>
         </div>
 
         <div>
